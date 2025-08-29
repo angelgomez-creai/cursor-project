@@ -1,4 +1,4 @@
-# Cursor AI Course Website
+# Curso Completo de Cursor AI para Desarrolladores
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
@@ -6,16 +6,29 @@ Este es el sitio web del **Curso Completo de Cursor AI para Desarrolladores**, c
 
 ## 🚀 Estructura del Curso
 
-### 📚 Módulos Teóricos (1-3)
-- **Módulo 1**: Introducción a Cursor AI - Instalación y conceptos básicos
-- **Módulo 2**: Navegación y Funciones Básicas - Domina la interfaz de usuario
-- **Módulo 3**: Características Avanzadas de IA - Aprovecha todo el potencial de la IA
+El curso está organizado en **12 módulos completos** que te llevan desde lo básico hasta técnicas empresariales avanzadas:
 
-### 🛠️ Módulos Prácticos (4-10)
-- **Desarrollo de Proyecto Real**: Aplicación full-stack con React + Python
-- **Frontend**: React, TypeScript, Vite, Ant Design
-- **Backend**: Python, FastAPI, SQLite
-- **Integración**: APIs REST, bases de datos, despliegue
+### 🚀 Fundamentos de Cursor AI (Módulos 1-3)
+- **Módulo 1**: Introducción a Cursor AI - Instalación, diferencias con VS Code
+- **Módulo 2**: Configuración y Workspace - Setup avanzado y migraciones
+- **Módulo 3**: Workflows y Prompting Avanzado - Técnicas de productividad
+
+### 💻 Desarrollo Full-Stack (Módulos 4-6)
+- **Módulo 4**: Frontend con React - Componentes y estado avanzado
+- **Módulo 5**: Backend con FastAPI - APIs REST robustas y escalables
+- **Módulo 6**: DevOps y Deployment - CI/CD, Docker, Kubernetes
+
+### 🤖 Automatización Avanzada (Módulos 7-9)
+- **Módulo 7**: Documentación y Reglas - Auto-generación y mantenimiento
+- **Módulo 8**: Agentes y Background Tasks - BugBot, Slack integration
+- **Módulo 9**: UI desde Mockups y Wireframes - Reconocimiento visual
+
+### 🔧 Testing y Calidad (Módulo 10)
+- **Módulo 10**: Testing Automatizado - Unit, Integration, E2E tests
+
+### 🔐 Integración y Seguridad (Módulos 11-12)
+- **Módulo 11**: MCP y Integraciones - Model Context Protocol
+- **Módulo 12**: Seguridad y Privacidad - Cumplimiento normativo empresarial
 
 ## 🧞 Comandos Disponibles
 
@@ -33,17 +46,27 @@ Este es el sitio web del **Curso Completo de Cursor AI para Desarrolladores**, c
 ```
 course-website/
 ├── public/                 # Archivos estáticos
-│   └── favicon.svg
+│   └── favicon-creai.png
 ├── src/
 │   ├── assets/            # Imágenes y recursos
-│   │   └── houston.webp
+│   │   ├── cursor-logo.png         # Logo oficial de Cursor AI
+│   │   ├── logo-creai-dark.svg     # Logo dark theme
+│   │   └── logo-creai-light.svg    # Logo light theme
 │   ├── content/           # Contenido del curso
 │   │   └── docs/
 │   │       ├── index.mdx           # Página principal
-│   │       ├── modulo-1/           # Módulo 1
-│   │       ├── modulo-2/           # Módulo 2
-│   │       ├── modulo-3/           # Módulo 3
-│   │       ├── modulos-practicos/  # Módulos 4-10
+│   │       ├── modulo-1/           # Módulo 1: Introducción
+│   │       ├── modulo-2/           # Módulo 2: Configuración
+│   │       ├── modulo-3/           # Módulo 3: Workflows
+│   │       ├── modulo-4/           # Módulo 4: Frontend React
+│   │       ├── modulo-5/           # Módulo 5: Backend FastAPI
+│   │       ├── modulo-6/           # Módulo 6: DevOps
+│   │       ├── modulo-7/           # Módulo 7: Documentación
+│   │       ├── modulo-8/           # Módulo 8: Agentes
+│   │       ├── modulo-9/           # Módulo 9: UI desde Mockups
+│   │       ├── modulo-10/          # Módulo 10: Testing
+│   │       ├── modulo-11/          # Módulo 11: MCP
+│   │       ├── modulo-12/          # Módulo 12: Seguridad
 │   │       └── proyecto/           # Documentación del proyecto
 │   │           ├── frontend/       # Docs del frontend
 │   │           └── backend/        # Docs del backend
@@ -57,41 +80,49 @@ course-website/
 
 El sitio incluye navegación organizada por:
 
-- **Introducción**: Bienvenida y visión general
-- **Módulos Teóricos**: Fundamentos de Cursor AI (Módulos 1-3)
-- **Módulos Prácticos**: Desarrollo de proyecto real (Módulos 4-10)
-- **El Proyecto**: Documentación técnica del proyecto full-stack
+- **Introducción**: Bienvenida y visión general del curso
+- **Fundamentos de Cursor AI**: Conceptos básicos (Módulos 1-3)
+- **Desarrollo Full-Stack**: React y FastAPI (Módulos 4-6)
+- **Automatización Avanzada**: Agentes y automatización (Módulos 7-9)
+- **Testing y Calidad**: Testing automatizado (Módulo 10)
+- **Integración y Seguridad**: MCP y seguridad empresarial (Módulos 11-12)
+- **Recursos Adicionales**: Documentación del proyecto e-commerce
 
 ## 🌟 Características
 
-- **Navegación intuitiva** con sidebar organizado
-- **Contenido en Markdown/MDX** fácil de mantener
-- **Componentes interactivos** de Starlight (Cards, CodeBlocks, etc.)
+- **Navegación intuitiva** con sidebar organizado por categorías
+- **Contenido en Markdown/MDX** con componentes interactivos
+- **Videos integrados** de YouTube para cada módulo
+- **CardGrid components** para presentación visual atractiva
 - **Responsive design** adaptado a todos los dispositivos
-- **Búsqueda integrada** para encontrar contenido rápidamente
-- **Syntax highlighting** para ejemplos de código
-- **Dark/Light mode** automático
+- **Dark/Light mode** automático con logos adaptativos
+- **Syntax highlighting** avanzado para ejemplos de código
+- **Sin búsqueda** (desactivada por configuración)
 
-## 🎯 Objetivo
+## 🎯 Proyecto Final
 
-Este sitio web sirve como:
+A lo largo del curso desarrollarás un **e-commerce completo** que incluye:
 
-1. **Documentación completa** del curso de Cursor AI
-2. **Guía de referencia** para los módulos teóricos y prácticos
-3. **Documentación técnica** del proyecto desarrollado
-4. **Recurso educativo** interactivo y navegable
+- **Frontend moderno** con React y TypeScript
+- **Backend robusto** con FastAPI y PostgreSQL  
+- **Testing automatizado** con coverage completo
+- **Deployment automatizado** con CI/CD
+- **Documentación auto-generada** y siempre actualizada
+- **Background agents** para tareas automatizadas
+- **Integración MCP** para herramientas externas
+- **Seguridad empresarial** con cumplimiento normativo
 
-## 📚 Contenido del Curso
+## 📚 Lo que dominarás
 
-### Módulos Teóricos
-Aprende los fundamentos de Cursor AI, desde la instalación hasta las características avanzadas de IA para desarrollo de software.
+Al completar este curso, serás capaz de:
 
-### Proyecto Práctico
-Desarrolla una aplicación completa aplicando todo lo aprendido:
-- **Frontend** en React con TypeScript
-- **Backend** en Python con FastAPI  
-- **Base de datos** SQLite
-- **Despliegue** y optimización
+- **Automatizar workflows** de desarrollo con Background Agents y BugBot
+- **Generar UI automáticamente** desde mockups y wireframes  
+- **Implementar testing completo** con generación automática de tests
+- **Integrar herramientas externas** usando Model Context Protocol (MCP)
+- **Configurar entornos seguros** para desarrollo empresarial
+- **Desarrollar aplicaciones full-stack** con React y FastAPI
+- **Crear documentación automatizada** que se mantiene actualizada
 
 ## 🚀 Inicio Rápido
 
@@ -109,11 +140,21 @@ Desarrolla una aplicación completa aplicando todo lo aprendido:
 
 ## 📖 Recursos
 
-- [Documentación de Starlight](https://starlight.astro.build/)
-- [Documentación de Astro](https://docs.astro.build)
-- [Proyecto Frontend](../frontend/) - Código React del curso
-- [Proyecto Backend](../backend/) - Código Python del curso
+- [Cursor AI Official](https://cursor.com)
+- [Model Context Protocol](https://modelcontextprotocol.io)
+
+## 🏆 Sobre el Curso
+
+Este es un curso **hands-on completo** donde cada módulo incluye:
+
+- **Objetivos de aprendizaje** claros y específicos
+- **Videos explicativos** con contenido práctico
+- **Ejercicios prácticos** con código real
+- **Troubleshooting guides** para problemas comunes
+- **Resúmenes y checkpoints** para validar el aprendizaje
+
+**Ideal para**: Desarrolladores que quieren dominar la próxima generación de herramientas de desarrollo con IA
 
 ---
 
-**Curso Completo de Cursor AI para Desarrolladores** - Domina el desarrollo de software con IA
+**Curso Completo de Cursor AI para Desarrolladores** - Domina el futuro del desarrollo de software
