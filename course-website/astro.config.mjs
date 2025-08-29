@@ -7,11 +7,14 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Curso Completo de Cursor AI',
+			logo: {
+				light: './src/assets/logo-creai-dark.svg',
+				dark: './src/assets/logo-creai-light.svg',
+				replacesTitle: true,
+			},
 			titleDelimiter: '',
 			favicon: '/favicon.svg',
-			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/anthropics/cursor' }
-			],
+			pagefind: false,
 			sidebar: [
 				{
 					label: 'Introducción',
