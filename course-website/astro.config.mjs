@@ -6,14 +6,14 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'Curso Completo de Cursor AI',
+			title: '',
 			logo: {
 				light: './src/assets/logo-creai-dark.svg',
 				dark: './src/assets/logo-creai-light.svg',
 				replacesTitle: true,
 			},
 			titleDelimiter: '',
-			favicon: '/favicon.svg',
+			favicon: '/favicon-creai.png',
 			pagefind: false,
 			sidebar: [
 				{
