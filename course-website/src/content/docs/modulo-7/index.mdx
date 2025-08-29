@@ -16,6 +16,44 @@ Al finalizar este módulo, serás capaz de:
 5. **Crear sistemas de mantenimiento automático** de READMEs, wikis y bases de conocimiento técnico
 6. **Integrar documentación como parte del workflow** de desarrollo con validación continua
 
+## 📹 Videos del Módulo
+
+### 🎯 Video Principal: Documentación y Reglas
+
+Crea sistemas de documentación automática y reglas persistentes.
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/5b5N72o08GY" 
+  title="Documentación y Reglas Persistentes" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen
+  style="border-radius: 8px; margin: 1rem 0;">
+</iframe>
+
+### 🛠️ Video Complementario: Configuración Avanzada
+
+Configuraciones avanzadas y mejores prácticas para proyectos empresariales.
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/5zR1ZE5aqho" 
+  title="Configuración Avanzada de Cursor AI" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen
+  style="border-radius: 8px; margin: 1rem 0;">
+</iframe>
+
+### 📚 Recurso Adicional: Documentación Oficial
+
+Consulta la documentación oficial de Cursor sobre reglas para AI:
+
+**[📖 Rules for AI - Cursor Docs](https://docs.cursor.com/context/rules-for-ai)**
+
 ## Introducción Conceptual
 
 En este punto del proyecto, hemos construido un **e-commerce completo** con frontend React, backend FastAPI y deployment automatizado. Sin embargo, el verdadero valor de Cursor AI no radica solo en la velocidad de desarrollo inicial, sino en la capacidad de **mantener consistencia y calidad** a medida que el proyecto escala.
@@ -644,42 +682,89 @@ await applyRuleToProject(rule);
 **Archivo: `.cursor/templates/generated-rule-template.md`**
 
 ```markdown
-# {{RULE_TITLE}} - Generated Rule
+# Mejores Prácticas de Implementación - Generated Rule
 
-*Generated from conversation {{CONVERSATION_ID}} on {{TIMESTAMP}}*
+*Generated from successful conversation patterns on project development*
 
 ## Context
-{{EXTRACTED_CONTEXT}}
+Esta regla se aplica en el contexto del desarrollo del proyecto e-commerce, donde se requiere consistencia en patrones de implementación, manejo de errores, logging estructurado y seguimiento de mejores prácticas arquitecturales. Es especialmente relevante para funciones que manejan datos críticos del negocio.
 
 ## Problem Solved
-{{PROBLEM_DESCRIPTION}}
+Esta regla soluciona patrones inconsistentes de implementación que pueden llevar a bugs, code smells o violaciones de las mejores prácticas del proyecto. Se activa cuando se detectan patrones específicos que requieren refactoring o mejora según los estándares establecidos.
 
 ## Trigger Conditions
-**ACTIVATION:** {{TRIGGER_CONDITIONS}}
+**ACTIVATION:** Cuando se detectan patrones específicos que requieren implementación de mejores prácticas del proyecto.
 
 ## Solution Pattern
 
 ### ✅ RECOMMENDED APPROACH
-```{{LANGUAGE}}
-{{SUCCESSFUL_CODE_EXAMPLE}}
+```javascript
+// Ejemplo de implementación recomendada siguiendo las reglas del proyecto
+const recommendedImplementation = async (data) => {
+  // Validación de entrada
+  const validatedData = await validateInputData(data);
+  
+  // Lógica de negocio con manejo de errores
+  try {
+    const result = await processBusinessLogic(validatedData);
+    
+    // Logging estructurado
+    logger.info('Operation completed successfully', {
+      operationType: 'data-processing',
+      dataSize: validatedData.length,
+      processingTime: Date.now()
+    });
+    
+    return {
+      success: true,
+      data: result,
+      timestamp: new Date().toISOString()
+    };
+  } catch (error) {
+    logger.error('Operation failed', {
+      error: error.message,
+      stack: error.stack,
+      input: validatedData
+    });
+    
+    throw new ProcessingError(
+      'Data processing failed', 
+      { cause: error, recoverable: true }
+    );
+  }
+};
 ```
 
 ### ❌ PREVIOUS PROBLEMATIC APPROACH
-```{{LANGUAGE}}
-{{PROBLEMATIC_CODE_EXAMPLE}}
+```javascript
+// Ejemplo de código problemático que se solucionó
+const badImplementation = () => {
+  // Código sin seguir las mejores prácticas del proyecto
+  // Que fue mejorado mediante las reglas aplicadas
+};
 ```
 
 ## Key Benefits
-{{EXTRACTED_BENEFITS}}
+- ✅ **Consistencia**: Mantiene patrones uniformes en todo el proyecto
+- ✅ **Calidad**: Reduce errores comunes mediante aplicación automática
+- ✅ **Escalabilidad**: Facilita el mantenimiento y evolución del código
+- ✅ **Onboarding**: Acelera la adaptación de nuevos desarrolladores
 
 ## Related Patterns
-{{RELATED_PATTERNS}}
+- **Clean Architecture**: Para separación de responsabilidades
+- **Component Patterns**: Para estructuras de UI reutilizables
+- **API Design Patterns**: Para interfaces consistentes
+- **Testing Patterns**: Para cobertura y calidad automatizada
 
 ## Implementation Checklist
-{{GENERATED_CHECKLIST}}
+- [ ] Definir contexto de activación específico
+- [ ] Documentar patrones obligatorios y prohibidos
+- [ ] Incluir ejemplos concretos del proyecto
+- [ ] Validar aplicación en casos reales
+- [ ] Integrar con sistema de versionado
 
 ---
-*This rule was automatically generated from successful conversation patterns. Review and customize as needed for your specific project requirements.*
+*Esta regla fue generada automáticamente a partir de patrones exitosos de conversación. Revisa y personaliza según los requisitos específicos de tu proyecto.*
 ```
 
 ## Documentación Automática de Código y APIs

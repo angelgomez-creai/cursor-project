@@ -5,7 +5,41 @@ description: "Implementa configuraciones de seguridad avanzadas, cumplimiento no
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-En este módulo final aprenderás a configurar Cursor AI para cumplir con los más altos estándares de seguridad y privacidad, incluyendo configuraciones on-premise, cumplimiento normativo (GDPR, SOX, HIPAA), y mejores prácticas de seguridad empresarial.
+## Objetivos de Aprendizaje
+
+Al finalizar este módulo, serás capaz de:
+
+1. **Configurar Cursor AI en modo privado** para entornos empresariales sensibles
+2. **Implementar encriptación robusta** para proteger datos en tránsito y reposo
+3. **Gestionar API keys y tokens** de forma segura y automatizada
+4. **Configurar vulnerability scanning** automatizado para el código
+5. **Establecer políticas corporativas** de uso de IA
+6. **Implementar cumplimiento normativo** (GDPR, SOX, HIPAA)
+7. **Configurar auditoría completa** de actividades de IA
+8. **Calcular ROI y métricas empresariales** de seguridad
+
+## 📹 Videos del Módulo
+
+### 🔐 Recurso Principal: Cursor Security
+
+Consulta la página oficial de seguridad de Cursor AI con todas las certificaciones y prácticas de seguridad empresarial:
+
+**[🛡️ Cursor Security - Página Oficial](https://cursor.com/security)**
+
+### 🎯 Video Complementario: Configuración Segura
+
+Implementa configuraciones de seguridad avanzadas y cumplimiento normativo.
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/pjMooEnzEQs" 
+  title="Configuración Segura y Cumplimiento Normativo" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen
+  style="border-radius: 8px; margin: 1rem 0;">
+</iframe>
 
 <CardGrid>
   <Card title="Configuración Privada" icon="lock">
@@ -35,9 +69,9 @@ Al finalizar este módulo, serás capaz de:
 - **Configurar auditoría completa** de actividades de IA
 - **Calcular ROI y métricas empresariales** de seguridad
 
-## 12.1 Configuración de Modo Privado y On-Premise
+## Configuración de Modo Privado y On-Premise
 
-### 12.1.1 Cursor AI On-Premise
+### Cursor AI On-Premise
 
 Para organizaciones que requieren control total sobre sus datos:
 
@@ -62,7 +96,7 @@ services:
       - "8443:8443"  # HTTPS only
 ```
 
-### 12.1.2 Configuración de Privacidad
+### Configuración de Privacidad
 
 ```json
 // .cursor/privacy-config.json
@@ -90,9 +124,9 @@ services:
 }
 ```
 
-## 12.2 Encriptación de Datos
+## Encriptación de Datos
 
-### 12.2.1 Encriptación en Tránsito
+### Encriptación en Tránsito
 
 ```typescript
 // src/security/encryption.ts
@@ -153,7 +187,7 @@ interface EncryptedData {
 }
 ```
 
-### 12.2.2 Gestión Segura de API Keys
+### Gestión Segura de API Keys
 
 ```typescript
 // src/security/key-management.ts
@@ -201,9 +235,9 @@ export class SecureKeyManager {
 }
 ```
 
-## 12.3 Vulnerability Scanning Automatizado
+## Vulnerability Scanning Automatizado
 
-### 12.3.1 Scanner de Vulnerabilidades
+### Scanner de Vulnerabilidades
 
 ```typescript
 // src/security/vulnerability-scanner.ts
@@ -260,9 +294,9 @@ export class VulnerabilityScanner {
 }
 ```
 
-## 12.4 Cumplimiento Normativo
+## Cumplimiento Normativo
 
-### 12.4.1 GDPR Compliance
+### GDPR Compliance
 
 ```typescript
 // src/compliance/gdpr.ts
@@ -346,7 +380,7 @@ export class GDPRComplianceEngine {
 }
 ```
 
-### 12.4.2 SOX Compliance
+### SOX Compliance
 
 ```typescript
 // src/compliance/sox.ts
@@ -404,9 +438,9 @@ export class SOXComplianceEngine {
 }
 ```
 
-## 12.5 Auditoría y Logging
+## Auditoría y Logging
 
-### 12.5.1 Sistema de Auditoría Completo
+### Sistema de Auditoría Completo
 
 ```typescript
 // src/audit/audit-system.ts
@@ -470,9 +504,9 @@ export class ComprehensiveAuditSystem {
 }
 ```
 
-## 12.6 Políticas de Uso Corporativas
+## Políticas de Uso Corporativas
 
-### 12.6.1 Sistema de Políticas
+### Sistema de Políticas
 
 ```typescript
 // src/policy/policy-engine.ts
@@ -524,9 +558,9 @@ export class CorporatePolicyEngine {
 }
 ```
 
-## 12.7 Métricas Empresariales y ROI
+## Métricas Empresariales y ROI
 
-### 12.7.1 Calculadora de ROI
+### Calculadora de ROI
 
 ```typescript
 // src/metrics/roi-calculator.ts

@@ -5,9 +5,63 @@ description: "Domina la integración avanzada de herramientas usando MCP para cr
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-**PROYECTO FINAL: Integraciones Avanzadas**
+## Objetivos de Aprendizaje
 
-En este módulo culminante aprenderás a integrar herramientas externas usando el Model Context Protocol (MCP), creando un ecosistema de desarrollo completamente automatizado y preparado para el futuro.
+Al finalizar este módulo, serás capaz de:
+
+1. **Comprender la arquitectura** y filosofía del Model Context Protocol (MCP) como estándar de interoperabilidad de IA
+2. **Configurar MCPs nativos** (Playwright, Serverless, Database connectors) para extender capacidades de Cursor AI  
+3. **Desarrollar MCPs personalizados** para integrar APIs internas y herramientas específicas del proyecto
+4. **Implementar estrategias avanzadas** de debugging y troubleshooting para MCPs en entornos de producción
+5. **Optimizar el ecosistema completo** de MCPs para máxima eficiencia y performance en proyectos enterprise
+6. **Orquestar la integración final** del proyecto e-commerce con un ecosistema completo de herramientas y servicios
+
+## 📹 Videos del Módulo
+
+### 🎯 Video Principal: MCP y Integraciones
+
+Domina el Model Context Protocol para integraciones empresariales.
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/fGQ_gl_RQ_M" 
+  title="MCP y Integraciones Avanzadas" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen
+  style="border-radius: 8px; margin: 1rem 0;">
+</iframe>
+
+### 🛠️ Video Complementario: Configuración MCP
+
+Configuración y setup de MCPs nativos y personalizados.
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/7j_NE6Pjv-E" 
+  title="Configuración de MCPs" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen
+  style="border-radius: 8px; margin: 1rem 0;">
+</iframe>
+
+### 🚀 Video Avanzado: MCPs Personalizados
+
+Desarrollo de MCPs personalizados para APIs internas.
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/E2DEHOEbzks" 
+  title="MCPs Personalizados y APIs Internas" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen
+  style="border-radius: 8px; margin: 1rem 0;">
+</iframe>
 
 <CardGrid>
   <Card title="Arquitectura MCP" icon="puzzle">
@@ -24,18 +78,7 @@ En este módulo culminante aprenderás a integrar herramientas externas usando e
   </Card>
 </CardGrid>
 
-## Objetivos de Aprendizaje
-
-Al finalizar este módulo, serás capaz de:
-
-- **Comprender la arquitectura** y filosofía del Model Context Protocol (MCP) como estándar de interoperabilidad de IA
-- **Configurar MCPs nativos** (Playwright, Serverless, Database connectors) para extender capacidades de Cursor AI  
-- **Desarrollar MCPs personalizados** para integrar APIs internas y herramientas específicas del proyecto
-- **Implementar estrategias avanzadas** de debugging y troubleshooting para MCPs en entornos de producción
-- **Optimizar el ecosistema completo** de MCPs para máxima eficiencia y performance en proyectos enterprise
-- **Orquestar la integración final** del proyecto e-commerce con un ecosistema completo de herramientas y servicios
-
-## 11.1 Introducción al Model Context Protocol
+## Introducción al Model Context Protocol
 
 En este módulo culminante transformamos nuestro proyecto e-commerce de una aplicación bien automatizada en un ecosistema inteligente completamente integrado.
 
@@ -60,7 +103,7 @@ El Model Context Protocol (MCP) representa la quinta revolución en herramientas
 
 > **Impacto Empresarial**: Las empresas que adoptan MCP temprano reportan incrementos de productividad del 400-500% y reducción de friction entre herramientas del 90%.
 
-## 11.2 Estado Actual del Proyecto E-commerce
+## Estado Actual del Proyecto E-commerce
 
 ### Evolución Completa Hasta Módulo 10
 
@@ -91,7 +134,7 @@ ecommerce-project/
     └── Future-Proof Architecture       🎯 Extensible foundation
 ```
 
-## 11.3 Arquitectura MCP Fundamental
+## Arquitectura MCP Fundamental
 
 ### ¿Qué es MCP?
 
@@ -140,9 +183,9 @@ interface PostMCPIntegrations {
 }
 ```
 
-## 11.4 Configuración de MCPs Nativos
+## Configuración de MCPs Nativos
 
-### 11.4.1 MCP de Playwright
+### MCP de Playwright
 
 Configuración para testing automatizado:
 
@@ -161,7 +204,7 @@ Configuración para testing automatizado:
 }
 ```
 
-### 11.4.2 MCP de Base de Datos
+### MCP de Base de Datos
 
 ```json
 {
@@ -177,7 +220,7 @@ Configuración para testing automatizado:
 }
 ```
 
-### 11.4.3 MCP de Git
+### MCP de Git
 
 ```json
 {
@@ -193,9 +236,9 @@ Configuración para testing automatizado:
 }
 ```
 
-## 11.5 Desarrollo de MCPs Personalizados
+## Desarrollo de MCPs Personalizados
 
-### 11.5.1 MCP para API Interna
+### MCP para API Interna
 
 ```typescript
 // src/mcp/internal-api-server.ts
@@ -258,7 +301,7 @@ async function main() {
 main();
 ```
 
-### 11.5.2 MCP para Monitoreo
+### MCP para Monitoreo
 
 ```typescript
 // src/mcp/monitoring-server.ts
@@ -305,9 +348,9 @@ server.setRequestHandler("tools/list", async () => {
 });
 ```
 
-## 11.6 Orquestación del Ecosistema Integrado
+## Orquestación del Ecosistema Integrado
 
-### 11.6.1 Configuración Master
+### Configuración Master
 
 ```json
 // .cursor/mcp-settings.json
@@ -340,7 +383,7 @@ server.setRequestHandler("tools/list", async () => {
 }
 ```
 
-### 11.6.2 Workflow Integrado
+### Workflow Integrado
 
 Con MCP configurado, Cursor AI puede ahora:
 
@@ -350,7 +393,7 @@ Con MCP configurado, Cursor AI puede ahora:
 4. **Monitorear el sistema** y crear alertas automáticamente
 5. **Desplegar servicios** cuando los tests pasan
 
-## 11.7 Debugging y Troubleshooting
+## Debugging y Troubleshooting
 
 ### Problemas Comunes con MCP
 

@@ -5,7 +5,63 @@ description: "Domina la creación de suites completas de testing usando Cursor A
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-En este módulo aprenderás a crear suites completas de testing automatizado utilizando Cursor AI, desde tests unitarios hasta pruebas end-to-end, garantizando la calidad y confiabilidad de tus aplicaciones.
+## Objetivos de Aprendizaje
+
+Al finalizar este módulo, serás capaz de:
+
+1. **Configurar entornos de testing** completos con herramientas modernas para frontend y backend
+2. **Generar tests automáticamente** usando prompts efectivos y técnicas avanzadas de Cursor AI
+3. **Implementar testing unitario robusto** con alta cobertura para componentes y funciones críticas
+4. **Desarrollar tests de integración** con mocks apropiados y validación de interacciones entre módulos
+5. **Crear suites de testing E2E** completas usando Cypress y Playwright para flujos críticos
+6. **Automatizar testing en CI/CD** con pipelines de GitHub Actions para calidad continua
+
+## 📹 Videos del Módulo
+
+### 🎯 Video Principal: Testing Automatizado
+
+Crea suites completas de testing usando Cursor AI para máxima cobertura.
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/ZfQTJ3zdH6w" 
+  title="Testing Automatizado con Cursor AI" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen
+  style="border-radius: 8px; margin: 1rem 0;">
+</iframe>
+
+### 🛠️ Video Complementario: Testing Avanzado (Short)
+
+Tips rápidos para testing avanzado con Cursor AI.
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/vkvv1erxdME" 
+  title="Tips de Testing Avanzado" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen
+  style="border-radius: 8px; margin: 1rem 0;">
+</iframe>
+
+### 🚀 Video Avanzado: Test Coverage y CI/CD
+
+Integración de testing con pipelines de CI/CD y coverage automation.
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/I3f0h1Anqe0" 
+  title="Test Coverage y CI/CD Integration" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen
+  style="border-radius: 8px; margin: 1rem 0;">
+</iframe>
 
 <CardGrid>
   <Card title="Testing Unitario" icon="test-tube">
@@ -22,28 +78,28 @@ En este módulo aprenderás a crear suites completas de testing automatizado uti
   </Card>
 </CardGrid>
 
-## 10.1 Introducción al Testing Automatizado
+## Introducción al Testing Automatizado
 
 El testing automatizado es fundamental para garantizar la calidad del código y la confiabilidad de las aplicaciones. Cursor AI puede asistir significativamente en la creación y mantenimiento de pruebas automatizadas.
 
-### 10.1.1 Importancia del Testing
+### Importancia del Testing
 
 - **Calidad del código**: Detectar errores tempranamente
 - **Mantenibilidad**: Facilitar refactoring seguro
 - **Documentación**: Los tests sirven como documentación viva
 - **Confianza**: Permitir despliegues seguros
 
-### 10.1.2 Tipos de Testing
+### Tipos de Testing
 
 - **Unit Testing**: Pruebas de componentes individuales
 - **Integration Testing**: Pruebas de integración entre módulos
 - **End-to-End Testing**: Pruebas de flujos completos
 - **Performance Testing**: Pruebas de rendimiento
 
-## 10.2 Configuración de Entorno de Testing
+## Configuración de Entorno de Testing
 
 
-### 10.2.1 Herramientas Recomendadas – Frontend
+### Herramientas Recomendadas – Frontend
 
 <CardGrid>
   <Card title="Jest" icon="test-tube">
@@ -62,7 +118,7 @@ El testing automatizado es fundamental para garantizar la calidad del código y 
 
 - **Vitest**: Alternativa ligera y rápida para proyectos Vite
 
-### 10.2.2 Herramientas Recomendadas – Backend
+### Herramientas Recomendadas – Backend
 
 <CardGrid>
   <Card title="JUnit (Java)" icon="test-tube">
@@ -79,7 +135,7 @@ El testing automatizado es fundamental para garantizar la calidad del código y 
   </Card>
 </CardGrid>
 
-### 10.2.3 Configuración Básica
+### Configuración Básica
 
 ```json
 // package.json
@@ -97,16 +153,16 @@ El testing automatizado es fundamental para garantizar la calidad del código y 
 }
 ```
 
-## 10.3 Generación Automática de Tests con Cursor AI
+## Generación Automática de Tests con Cursor AI
 
-### 10.3.1 Técnicas de Generación
+### Técnicas de Generación
 
 - **Análisis de código**: Cursor AI analiza la funcionalidad
 - **Generación de casos**: Creación de casos de prueba relevantes  
 - **Cobertura**: Asegurar cobertura completa de funcionalidad
 - **Mantenimiento**: Actualización automática de tests
 
-### 10.3.2 Prompts Efectivos para Testing
+### Prompts Efectivos para Testing
 
 **Prompts básicos:**
 ```
@@ -125,9 +181,9 @@ El testing automatizado es fundamental para garantizar la calidad del código y 
 - Performance con datasets grandes"
 ```
 
-## 10.4 Testing Unitario con Cursor AI
+## Testing Unitario con Cursor AI
 
-### 10.4.1 Generación de Tests Unitarios
+### Generación de Tests Unitarios
 
 Ejemplo práctico de función y sus tests generados automáticamente:
 
@@ -166,7 +222,7 @@ describe('calculateTotal', () => {
 ```
 
 
-### 10.4.2 Testing de Componentes React
+### Testing de Componentes React
 
 Ejemplo de testing para componentes React generado por Cursor AI:
 
@@ -223,9 +279,9 @@ describe('UserProfile', () => {
 });
 ```
 
-## 10.5 Testing de Integración
+## Testing de Integración
 
-### 10.5.1 Configuración de Mocks
+### Configuración de Mocks
 
 Los tests de integración validan la interacción entre diferentes módulos:
 
@@ -269,7 +325,7 @@ describe('UserService Integration', () => {
 });
 ```
 
-### 10.5.2 Testing de Context y Providers
+### Testing de Context y Providers
 
 ```typescript
 // Test de Context Provider
@@ -288,7 +344,7 @@ describe('AuthProvider Integration', () => {
 });
 ```
 
-### 10.6.1 Configuración de Cypress
+### Configuración de Cypress
 
 ```javascript
 // cypress.config.js
@@ -306,7 +362,7 @@ module.exports = {
 };
 ```
 
-### 10.6.2 Generación de Tests E2E
+### Generación de Tests E2E
 
 ```javascript
 // Test E2E generado por Cursor AI
@@ -343,9 +399,9 @@ describe('User Registration Flow', () => {
 });
 ```
 
-## 10.7 Automatización y CI/CD
+## Automatización y CI/CD
 
-### 10.7.1 Configuración de GitHub Actions
+### Configuración de GitHub Actions
 
 ```yaml
 # .github/workflows/test.yml
@@ -366,7 +422,7 @@ jobs:
       - uses: codecov/codecov-action@v3
 ```
 
-### 10.7.2 Scripts de Automatización
+### Scripts de Automatización
 
 ```json
 {

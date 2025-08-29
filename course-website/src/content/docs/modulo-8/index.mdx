@@ -5,9 +5,16 @@ description: "Domina las funcionalidades avanzadas de Cursor AI para crear workf
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-# Módulo 8: Agentes y Background Tasks
+## Objetivos de Aprendizaje
 
-**PROYECTO EVOLUCIONA: Automatización Avanzada**
+Al finalizar este módulo, serás capaz de:
+
+- **Implementar Background Agents** para automatizar tareas de desarrollo de larga duración en la nube
+- **Configurar BugBot** para revisión automática e inteligente de Pull Requests con feedback contextual
+- **Integrar Cursor AI** con Slack y Microsoft Teams para workflows colaborativos distribuidos
+- **Optimizar AI Commit Messages** para generar historial semántico que facilite navegación y debugging
+- **Establecer pipelines** de testing automatizado y continuous validation integrados con Cursor AI
+- **Orchestrar un workflow** completamente automatizado que reduzca intervención manual en 70-80%
 
 En este módulo transformarás radicalmente tu workflow de desarrollo mediante la automatización inteligente de Cursor AI, implementando agentes autónomos que trabajan 24/7 y sistemas de colaboración avanzados.
 
@@ -26,18 +33,39 @@ En este módulo transformarás radicalmente tu workflow de desarrollo mediante l
   </Card>
 </CardGrid>
 
-## Objetivos de Aprendizaje
+## 📹 Videos del Módulo
 
-Al finalizar este módulo, serás capaz de:
+### 🎯 Video Principal: Agentes y Background Tasks
 
-- **Implementar Background Agents** para automatizar tareas de desarrollo de larga duración en la nube
-- **Configurar BugBot** para revisión automática e inteligente de Pull Requests con feedback contextual
-- **Integrar Cursor AI** con Slack y Microsoft Teams para workflows colaborativos distribuidos
-- **Optimizar AI Commit Messages** para generar historial semántico que facilite navegación y debugging
-- **Establecer pipelines** de testing automatizado y continuous validation integrados con Cursor AI
-- **Orchestrar un workflow** completamente automatizado que reduzca intervención manual en 70-80%
+Implementa agentes autónomos para automatización completa de workflows.
 
-## 8.1 Introducción Conceptual
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/gSnenmTs8EA" 
+  title="Agentes y Background Tasks" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen
+  style="border-radius: 8px; margin: 1rem 0;">
+</iframe>
+
+### 🛠️ Video Complementario: BugBot y Automatización
+
+Configura BugBot para revisiones automáticas y integración con equipos.
+
+<iframe 
+  width="100%" 
+  height="400" 
+  src="https://www.youtube.com/embed/Urj_MxeUTlw" 
+  title="BugBot y Automatización de Code Review" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen
+  style="border-radius: 8px; margin: 1rem 0;">
+</iframe>
+
+## Introducción Conceptual
 
 En este punto de nuestro proyecto e-commerce, hemos construido una aplicación completa con documentación exhaustiva y reglas sólidas. Ahora llega el momento de transformar radicalmente el workflow de desarrollo mediante la automatización inteligente de Cursor AI.
 
@@ -62,7 +90,7 @@ Las funcionalidades avanzadas de Cursor representan la cuarta revolución en des
 
 > **Impacto Empresarial**: Las empresas que implementan estos workflows reportan incrementos de productividad del 200-300% y reducción de bugs en producción del 45-60%.
 
-## 8.2 Estado Actual del Proyecto
+## Estado Actual del Proyecto
 
 ### Arquitectura Establecida al Final del Módulo 7
 
@@ -84,9 +112,9 @@ ecommerce-project/
 - **Commit History**: Messages genéricos que no facilitan debugging histórico
 - **Testing Gaps**: Coverage inconsistente, tests desactualizados, regression detection manual
 
-## 8.3 Background Agents: Ejecución de Tareas Largas
+## Background Agents: Ejecución de Tareas Largas
 
-### 8.3.1 Introducción a Background Agents
+### Introducción a Background Agents
 
 Background Agents son agentes de IA autónomos que ejecutan tareas complejas de desarrollo de forma asíncrona en la infraestructura de Cursor, liberando tu máquina local y permitiendo trabajo continuo 24/7.
 
@@ -99,7 +127,7 @@ Background Agents son agentes de IA autónomos que ejecutan tareas complejas de 
 - **Security Auditing**: Scanning completo de vulnerabilidades y fixes
 - **Test Suite Generation**: Creación exhaustiva de test coverage
 
-### 8.3.2 Configuración de Background Agents
+### Configuración de Background Agents
 
 **Archivo: `.cursor/config/background-agents.json`**
 
@@ -139,7 +167,7 @@ Background Agents son agentes de IA autónomos que ejecutan tareas complejas de 
 }
 ```
 
-### 8.3.3 Definición de Agentes Especializados
+### Definición de Agentes Especializados
 
 **Archivo: `.cursor/agents/refactoring-agent.yml`**
 
@@ -195,7 +223,7 @@ rollback_strategy:
     - performance_regression: ">20%"
 ```
 
-### 8.3.4 Ejemplo: Agent de Actualización de Dependencies
+### Ejemplo: Agent de Actualización de Dependencies
 
 ```typescript
 // .cursor/agents/dependency-updater.ts
@@ -239,13 +267,13 @@ interface DependencyUpdateAgent {
 }
 ```
 
-## 8.4 BugBot: Revisión Automática de Pull Requests
+## BugBot: Revisión Automática de Pull Requests
 
-### 8.4.1 Introducción a BugBot
+### Introducción a BugBot
 
 BugBot es el agente de IA especializado en code review que analiza Pull Requests con la consistencia y profundidad de un senior developer, identificando bugs, security issues, performance problems y violations de estándares del proyecto.
 
-### 8.4.2 Configuración de BugBot
+### Configuración de BugBot
 
 **Archivo: `.cursor/config/bugbot.json`**
 
@@ -299,7 +327,7 @@ BugBot es el agente de IA especializado en code review que analiza Pull Requests
 }
 ```
 
-### 8.4.3 Tipos de Análisis de BugBot
+### Tipos de Análisis de BugBot
 
 #### Bug Detection Avanzado
 
@@ -346,9 +374,9 @@ def get_user_orders(user_id: str, status: str):
     return db.execute(query, (user_id, status))
 ```
 
-## 8.5 Integración con Slack y Microsoft Teams
+## Integración con Slack y Microsoft Teams
 
-### 8.5.1 Configuración de Slack Integration
+### Configuración de Slack Integration
 
 **Archivo: `.cursor/config/slack-integration.json`**
 
@@ -391,7 +419,7 @@ def get_user_orders(user_id: str, status: str):
 }
 ```
 
-### 8.5.2 Slash Commands Personalizados
+### Slash Commands Personalizados
 
 ```typescript
 // /cursor-analyze [file_path]
@@ -437,9 +465,9 @@ def get_user_orders(user_id: str, status: str):
 }
 ```
 
-## 8.6 AI Commit Messages para Historial Semántico
+## AI Commit Messages para Historial Semántico
 
-### 8.6.1 Configuración Avanzada
+### Configuración Avanzada
 
 **Archivo: `.cursor/config/semantic-commits.json`**
 
@@ -478,7 +506,7 @@ def get_user_orders(user_id: str, status: str):
 }
 ```
 
-### 8.6.2 Ejemplo de Commit Semántico
+### Ejemplo de Commit Semántico
 
 ```
 # ❌ Commit message típico (poco semántico)
@@ -509,9 +537,9 @@ Closes #AUTH-145, #AUTH-167
 Addresses security concerns raised in PR #234
 ```
 
-## 8.7 Testing Automatizado y Continuous Validation
+## Testing Automatizado y Continuous Validation
 
-### 8.7.1 Configuración de Testing Automation
+### Configuración de Testing Automation
 
 **Archivo: `.cursor/config/automated-testing.json`**
 
@@ -551,7 +579,7 @@ Addresses security concerns raised in PR #234
 }
 ```
 
-### 8.7.2 Smart Test Generation
+### Smart Test Generation
 
 ```typescript
 // Ejemplo de test generado automáticamente por Cursor AI
@@ -600,7 +628,7 @@ describe('ProductCard Component', () => {
 });
 ```
 
-## 8.8 Métricas de Automatización
+## Métricas de Automatización
 
 ### Estado Final del Proyecto
 
