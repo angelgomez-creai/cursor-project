@@ -141,6 +141,7 @@ Al completar este curso, serás capaz de:
 ## 📖 Recursos
 
 - [Cursor AI Official](https://cursor.com)
+- [Cursor Official Documentation](https://cursor.com/docs)
 - [Model Context Protocol](https://modelcontextprotocol.io)
 
 ## 🏆 Sobre el Curso
