@@ -22,13 +22,13 @@ Al finalizar este módulo, serás capaz de:
 
 Aprende a configurar tu workspace óptimo y establecer la estructura de proyecto perfecta.
 
-<iframe 
-  width="100%" 
-  height="400" 
-  src="https://www.youtube.com/embed/5zR1ZE5aqho" 
-  title="Configuración y Workspace en Cursor AI" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/5zR1ZE5aqho"
+  title="Configuración y Workspace en Cursor AI"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen
   style="border-radius: 8px; margin: 1rem 0;">
 </iframe>
@@ -37,13 +37,13 @@ Aprende a configurar tu workspace óptimo y establecer la estructura de proyecto
 
 Configuraciones avanzadas y personalización de tu entorno de desarrollo.
 
-<iframe 
-  width="100%" 
-  height="400" 
-  src="https://www.youtube.com/embed/gqUQbjsYZLQ" 
-  title="Setup Avanzado de Cursor AI" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/gqUQbjsYZLQ"
+  title="Setup Avanzado de Cursor AI"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen
   style="border-radius: 8px; margin: 1rem 0;">
 </iframe>
@@ -64,14 +64,14 @@ Esta configuración es especialmente crítica para equipos profesionales donde l
 proyecto/
 ├── .cursor/
 │   ├── rules/
-│   │   ├── global.md              # Reglas aplicables a todo el proyecto
-│   │   ├── frontend.md            # Reglas específicas para frontend
-│   │   ├── backend.md             # Reglas específicas para backend
-│   │   ├── testing.md             # Reglas para testing y QA
+│   │   ├── global.mdc              # Reglas aplicables a todo el proyecto
+│   │   ├── frontend.mdc            # Reglas específicas para frontend
+│   │   ├── backend.mdc             # Reglas específicas para backend
+│   │   ├── testing.mdc             # Reglas para testing y QA
 │   │   └── patterns/
-│   │       ├── react-components.md
-│   │       ├── api-design.md
-│   │       └── database-patterns.md
+│   │       ├── react-components.mdc
+│   │       ├── api-design.mdc
+│   │       └── database-patterns.mdc
 │   ├── notepads/
 │   │   ├── ui-ux/
 │   │   │   ├── design-system.md
@@ -107,8 +107,8 @@ echo "🚀 Configurando estructura de proyecto Cursor AI..."
 mkdir -p .cursor/{rules/{patterns},notepads/{ui-ux,backend,shared},memories/{architectural-decisions,technology-choices,lessons-learned},config}
 
 # Crear archivos base
-touch .cursor/rules/{global.md,frontend.md,backend.md,testing.md}
-touch .cursor/rules/patterns/{react-components.md,api-design.md,database-patterns.md}
+touch .cursor/rules/{global.mdc,frontend.mdc,backend.mdc,testing.mdc}
+touch .cursor/rules/patterns/{react-components.mdc,api-design.mdc,database-patterns.mdc}
 touch .cursor/notepads/ui-ux/{design-system.md,accessibility.md,component-library.md}
 touch .cursor/notepads/backend/{api-standards.md,database-conventions.md,security-guidelines.md}
 touch .cursor/notepads/shared/{coding-standards.md,git-workflow.md,deployment-guide.md}
@@ -120,11 +120,55 @@ echo "📝 Próximo paso: Configurar Rules y Notepads según tu proyecto"
 
 ## Rules del Proyecto: Jerarquía y Tipos
 
-### 1) Project Rules (Reglas de Proyecto)
 
-**Archivo:** `.cursor/rules/global.md`
+### Migration Guidelines
+
+Reglas con la cabecera
 
 ```markdown
+**TRIGGER:** `**/*.{tsx,jsx}` AND contains "React.FC" OR contains "useState"
+```
+
+No son compatibles con las versiones actuales del editor y pueden ser no reconocidas por el editor.
+
+Este tipo de regla era funcional en versiones anteriores de Cursor IDE, especialmente cuando se usaban archivos .md o .cursorrules con anotaciones como
+```markdown
+<!-- Activación automática -->
+```
+y
+```markdown
+**TRIGGER:**
+```
+Sin embargo, ya no es el formato recomendado ni completamente compatible con las versiones actuales del editor.
+
+
+Usar el formato de regla actual para crear reglas en el archivo `.mdc`.
+
+```markdown
+---
+globs: **/*.tsx, **/*.jsx
+alwaysApply: false
+---
+```
+
+Asegura que la regla es reconocida por el editor.
+
+![image.png](/src/assets/img/rules-settings.png)
+
+
+Cuando tu describes una regla el editor te pedirá como se debe aplicar la regla.
+
+![image.png](/src/assets/img/rule-setting.png)
+
+### 1) Project Rules (Reglas de Proyecto)
+
+**Archivo:** `.cursor/rules/global.mdc`
+
+```markdown
+---
+alwaysApply: true
+---
+
 # Reglas Globales del Proyecto
 
 ## Convenciones de Nomenclatura
@@ -154,19 +198,45 @@ echo "📝 Próximo paso: Configurar Rules y Notepads según tu proyecto"
 ```
 ### 2) User Rules (Reglas Personales)
 
-Para configuración personal de reglas, consulta [User Rules Documentation](https://docs.cursor.com/user-rules).
+**Archivo:** `.cursor/rules/frontend.mdc`
+
+```markdown
+---
+globs: **/src/**/*.tsx, **/src/**/*.ts, **/components/**/*
+alwaysApply: false
+---
+
+# Reglas Frontend
+
+## Convenciones React
+- Usar functional components con hooks
+- Implementar PropTypes o TypeScript interfaces
+- Preferir composición sobre herencia
+- Usar React.memo para optimización cuando sea necesario
+
+## Styling
+- Usar TailwindCSS como framework principal
+- Crear componentes reutilizables en `/components/ui/`
+- Implementar dark mode con CSS variables
+```
+
+Para configuración personal de reglas, consulta [User Rules Documentation](https://cursor.com/docs/context/rules).
 
 ### 3) Auto-Attach Rules (Reglas Auto-Adjuntas)
 
-**Archivo:** `.cursor/rules/patterns/react-components.md`
+**Archivo:** `.cursor/rules/patterns/react-components.mdc`
 
 ```md
-<!-- Activación automática -->
-**TRIGGER:** `**/*.{tsx,jsx}` AND contains "React.FC" OR contains "useState"
+---
+globs: **/*.tsx, **/*.jsx
+alwaysApply: false
+---
 
 # Reglas para Componentes React
 
 ## Template de Componente Estándar
+
+- Aplica esta regla solo si el archivo contiene `React.FC` o `useState`.
 
 ```typescript
 import React, { useState, useCallback, useMemo } from 'react';
@@ -191,19 +261,19 @@ const ComponentName: React.FC<ComponentNameProps> = ({
 }) => {
   // 3. State hooks primero
   const [isActive, setIsActive] = useState(false);
-  
+
   // 4. Computed values con useMemo
   const computedClass = useMemo(() => cn(
     'base-class',
     `variant-${variant}`,
     className
   ), [variant, className]);
-  
+
   // 5. Event handlers con useCallback
   const handleClick = useCallback(() => {
     setIsActive(prev => !prev);
   }, []);
-  
+
   // 6. Render
   return (
     <div className={computedClass} onClick={handleClick}>
@@ -222,13 +292,37 @@ export default ComponentName;
 - Incluir ARIA labels para accesibilidad
 - Usar `React.memo` para componentes con props complejas
 
+### 4) Reglas de Testing
+
+**Archivo:** `.cursor/rules/testing.mdc`
+
+```markdown
+---
+globs: **/*.test.{ts,js,tsx,jsx}, **/*.spec.{ts,js,tsx,jsx}, **/__tests__/**/*, **/tests/**/*
+alwaysApply: false
+---
+
+# Reglas de Testing
+
+## Convenciones de Testing
+- Usar describe/it para estructura de tests
+- Implementar AAA pattern (Arrange, Act, Assert)
+- Mockear dependencias externas
+- Escribir tests descriptivos con nombres claros
+
+## Cobertura Mínima
+- 80% para componentes críticos
+- 90% para utilidades y helpers
+- 100% para funciones de validación
+```
+
 #### Jerarquía de Precedencia
 
 ```ts
 // Orden de aplicación (mayor número = mayor prioridad)
 const rulePrecedence = {
   auto_attach_rules: 100,    // Contexto específico
-  user_rules: 90,            // Preferencias personales  
+  user_rules: 90,            // Preferencias personales
   project_rules: 70,         // Estándares del proyecto
   global_defaults: 10        // Valores por defecto
 };
@@ -250,7 +344,7 @@ const rulePrecedence = {
   --color-primary-50: #eff6ff;
   --color-primary-500: #3b82f6;
   --color-primary-900: #1e3a8a;
-  
+
   /* Semantic Colors */
   --color-success: #10b981;
   --color-warning: #f59e0b;
@@ -269,15 +363,15 @@ const buttonVariants = {
 
 const buttonSizes = {
   sm: 'px-3 py-1.5 text-sm',
-  md: 'px-4 py-2 text-base', 
+  md: 'px-4 py-2 text-base',
   lg: 'px-6 py-3 text-lg'
 };
 ```
 
-**Spacing System**  
+**Spacing System**
 xs: 4px | sm: 8px | md: 16px | lg: 24px | xl: 32px
 
-**Typography Scale**  
+**Typography Scale**
 text-sm: 14px | text-base: 16px | text-lg: 18px | text-xl: 20px
 ```
 
@@ -291,11 +385,11 @@ text-sm: 14px | text-base: 16px | text-lg: 18px | text-xl: 20px
 ## RESTful Conventions
 
 ### URL Structure
-GET /api/v1/users          # Obtener todos los usuarios 
-GET /api/v1/users/{id}     # Obtener usuario específico 
-POST /api/v1/users         # Crear nuevo usuario 
-PUT /api/v1/users/{id}     # Actualizar usuario completo 
-PATCH /api/v1/users/{id}   # Actualización parcial 
+GET /api/v1/users          # Obtener todos los usuarios
+GET /api/v1/users/{id}     # Obtener usuario específico
+POST /api/v1/users         # Crear nuevo usuario
+PUT /api/v1/users/{id}     # Actualizar usuario completo
+PATCH /api/v1/users/{id}   # Actualización parcial
 DELETE /api/v1/users/{id}  # Eliminar usuario
 
 ### Response Format Standard
@@ -394,19 +488,19 @@ interface AuthState {
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isAuthenticated: false,
-  
+
   login: async (credentials) => {
     const user = await authService.login(credentials);
     set({ user, isAuthenticated: true });
   },
-  
+
   logout: () => {
     set({ user: null, isAuthenticated: false });
   }
 }));
 ```
 
-**Fecha de Revisión**  
+**Fecha de Revisión**
 2025-05-15 — Evaluar después de 6 meses de uso
 ```
 
@@ -494,7 +588,7 @@ const fileSelectionStrategies = {
     "@Files: src/hooks/",              // Custom hooks
     "@Files: src/types/",              // Definiciones de tipos
   ],
-  
+
   // Debugging específico
   bug_debugging: [
     "@Files: src/pages/problem-page.tsx",  // Archivo con bug
@@ -617,16 +711,16 @@ Cursor AI sugiere automáticamente contexto relevante basado en: dependencias de
 {
   "code_quality": {
     "linting": {
-      "eslint": { 
-        "enabled": true, 
-        "auto_fix": true, 
-        "config": ".eslintrc.js" 
+      "eslint": {
+        "enabled": true,
+        "auto_fix": true,
+        "config": ".eslintrc.js"
       }
     },
     "formatting": {
-      "prettier": { 
-        "enabled": true, 
-        "config": ".prettierrc" 
+      "prettier": {
+        "enabled": true,
+        "config": ".prettierrc"
       }
     },
     "pre_commit": {
