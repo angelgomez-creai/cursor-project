@@ -1,17 +1,61 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { ApiError } from '@shared/types'
 
-// ❌ PROBLEMA: API Client muy básico sin features empresariales
-// ❌ PROBLEMA: No retry logic para failed requests
-// ❌ PROBLEMA: No request caching
-// ❌ PROBLEMA: No request deduplication
+/**
+ * API Client for making HTTP requests to the backend
+ * 
+ * @class ApiClient
+ * @description Centralized HTTP client with interceptors for authentication,
+ * error handling, and request/response transformation.
+ * 
+ * @example
+ * ```typescript
+ * import { apiClient } from '@shared/services/apiClient'
+ * 
+ * // GET request
+ * const products = await apiClient.get<Product[]>('/api/products')
+ * 
+ * // POST request with data
+ * const newProduct = await apiClient.post<Product>('/api/products', {
+ *   name: 'New Product',
+ *   price: 99.99
+ * })
+ * 
+ * // With custom config
+ * const result = await apiClient.get('/api/products', {
+ *   params: { page: 1, limit: 10 }
+ * })
+ * ```
+ * 
+ * @see {@link https://github.com/axios/axios | Axios Documentation}
+ * 
+ * @todo Implement retry logic for failed requests
+ * @todo Add request caching mechanism
+ * @todo Implement request deduplication
+ * @todo Add request cancellation support
+ */
 class ApiClient {
   private client: AxiosInstance
 
-  // ❌ PROBLEMA: Constructor muy básico sin configuración avanzada
-  // ❌ PROBLEMA: BaseURL hardcodeada - should come from env
-  // ❌ PROBLEMA: No configuración de diferentes environments
-  constructor(baseURL: string = 'http://localhost:8000') {
+  /**
+   * Creates an instance of ApiClient
+   * 
+   * @param {string} baseURL - Base URL for API requests. Defaults to 'http://localhost:8000'
+   *                           Can be overridden via VITE_API_URL environment variable
+   * 
+   * @example
+   * ```typescript
+   * // Default configuration
+   * const client = new ApiClient()
+   * 
+   * // Custom base URL
+   * const client = new ApiClient('https://api.example.com')
+   * ```
+   * 
+   * @todo Load baseURL from environment variables
+   * @todo Support multiple API endpoints
+   */
+  constructor(baseURL: string = import.meta.env.VITE_API_URL || 'http://localhost:8000') {
     this.client = axios.create({
       baseURL,
       timeout: 10000,
@@ -87,44 +131,182 @@ class ApiClient {
     )
   }
 
-  // ❌ PROBLEMA: Generic request methods sin features avanzadas
-  // ❌ PROBLEMA: No request cancellation support
-  // ❌ PROBLEMA: No upload progress tracking
-  // ❌ PROBLEMA: No download progress tracking
+  /**
+   * Performs a GET request
+   * 
+   * @template T - Response data type
+   * @param {string} url - Request URL (relative to baseURL)
+   * @param {AxiosRequestConfig} [config] - Optional axios request configuration
+   * @returns {Promise<T>} Promise resolving to response data
+   * 
+   * @throws {ApiError} When request fails
+   * 
+   * @example
+   * ```typescript
+   * // Simple GET
+   * const products = await apiClient.get<Product[]>('/api/products')
+   * 
+   * // GET with query parameters
+   * const filtered = await apiClient.get<Product[]>('/api/products', {
+   *   params: { category: 'electronics', page: 1 }
+   * })
+   * ```
+   * 
+   * @see {@link https://axios-http.com/docs/api_intro | Axios GET}
+   */
   async get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
     const response = await this.client.get<T>(url, config)
     return response.data
   }
 
+  /**
+   * Performs a POST request
+   * 
+   * @template T - Response data type
+   * @param {string} url - Request URL (relative to baseURL)
+   * @param {any} [data] - Request body data
+   * @param {AxiosRequestConfig} [config] - Optional axios request configuration
+   * @returns {Promise<T>} Promise resolving to response data
+   * 
+   * @throws {ApiError} When request fails (400, 401, 500, etc.)
+   * 
+   * @example
+   * ```typescript
+   * // Create new product
+   * const product = await apiClient.post<Product>('/api/products', {
+   *   name: 'New Product',
+   *   price: 99.99,
+   *   category: 'electronics'
+   * })
+   * 
+   * // Login
+   * const auth = await apiClient.post<AuthResponse>('/api/auth/login', {
+   *   email: 'user@example.com',
+   *   password: 'password123'
+   * })
+   * ```
+   * 
+   * @see {@link https://axios-http.com/docs/api_intro | Axios POST}
+   */
   async post<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
     const response = await this.client.post<T>(url, data, config)
     return response.data
   }
 
+  /**
+   * Performs a PUT request (full update)
+   * 
+   * @template T - Response data type
+   * @param {string} url - Request URL (relative to baseURL)
+   * @param {any} [data] - Request body data
+   * @param {AxiosRequestConfig} [config] - Optional axios request configuration
+   * @returns {Promise<T>} Promise resolving to response data
+   * 
+   * @example
+   * ```typescript
+   * // Update entire product
+   * const updated = await apiClient.put<Product>('/api/products/123', {
+   *   name: 'Updated Product',
+   *   price: 149.99
+   * })
+   * ```
+   * 
+   * @see {@link https://axios-http.com/docs/api_intro | Axios PUT}
+   */
   async put<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
     const response = await this.client.put<T>(url, data, config)
     return response.data
   }
 
+  /**
+   * Performs a DELETE request
+   * 
+   * @template T - Response data type
+   * @param {string} url - Request URL (relative to baseURL)
+   * @param {AxiosRequestConfig} [config] - Optional axios request configuration
+   * @returns {Promise<T>} Promise resolving to response data
+   * 
+   * @example
+   * ```typescript
+   * // Delete product
+   * await apiClient.delete('/api/products/123')
+   * 
+   * // Delete with confirmation
+   * await apiClient.delete('/api/products/123', {
+   *   headers: { 'X-Confirm-Delete': 'true' }
+   * })
+   * ```
+   * 
+   * @see {@link https://axios-http.com/docs/api_intro | Axios DELETE}
+   */
   async delete<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
     const response = await this.client.delete<T>(url, config)
     return response.data
   }
 
-  // ❌ PROBLEMA: Utility methods muy básicos
-  // ❌ PROBLEMA: No token refresh mechanism
-  // ❌ PROBLEMA: No secure token storage (should use httpOnly cookies)
+  /**
+   * Sets authentication token for subsequent requests
+   * 
+   * @param {string} token - JWT token to be used for authentication
+   * 
+   * @example
+   * ```typescript
+   * // After successful login
+   * const { token } = await apiClient.post('/api/auth/login', credentials)
+   * apiClient.setAuthToken(token)
+   * 
+   * // All subsequent requests will include: Authorization: Bearer {token}
+   * ```
+   * 
+   * @see {@link removeAuthToken} To remove token
+   * @see {@link getAuthToken} To get current token
+   * 
+   * @todo Implement token expiry management
+   * @todo Use httpOnly cookies for secure token storage
+   * @todo Add automatic token refresh mechanism
+   */
   setAuthToken(token: string): void {
     localStorage.setItem('auth_token', token)
-    // ❌ PROBLEMA: No token expiry management
-    // ❌ PROBLEMA: No automatic header update
   }
 
+  /**
+   * Removes authentication token
+   * 
+   * Use this method when logging out or when token is invalid.
+   * 
+   * @example
+   * ```typescript
+   * // On logout
+   * apiClient.removeAuthToken()
+   * 
+   * // After token expiration
+   * if (isTokenExpired(token)) {
+   *   apiClient.removeAuthToken()
+   *   redirectToLogin()
+   * }
+   * ```
+   * 
+   * @see {@link setAuthToken} To set token
+   */
   removeAuthToken(): void {
     localStorage.removeItem('auth_token')
-    // ❌ PROBLEMA: No cleanup de headers pendientes
   }
 
+  /**
+   * Gets current authentication token
+   * 
+   * @returns {string | null} Current JWT token or null if not set
+   * 
+   * @example
+   * ```typescript
+   * const token = apiClient.getAuthToken()
+   * if (token) {
+   *   console.log('User is authenticated')
+   * }
+   * ```
+   * 
+   * @see {@link setAuthToken} To set token
+   */
   getAuthToken(): string | null {
     return localStorage.getItem('auth_token')
   }

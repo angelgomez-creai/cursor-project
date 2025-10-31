@@ -1,0 +1,103 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.npm/
+.yarn/
+
+# Build output
+dist/
+build/
+.output/
+.vite/
+.next/
+.nuxt/
+.cache/
+
+# Environment files
+.env
+.env.*
+!.env.example
+*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-*
+
+# Testing
+coverage/
+.nyc_output/
+.pytest_cache/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+__tests__/
+tests/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile*
+.dockerignore
+docker-compose*.yml
+.docker/
+
+# Documentation
+*.md
+README*
+docs/
+CHANGELOG*
+LICENSE*
+AUTHORS*
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.circleci/
+.travis.yml
+azure-pipelines.yml
+
+# Misc
+*.bak
+*.tmp
+*.cache
+*.log
+*.log.*
+
+# Development files
+setup.sh
+setup.bat
+start.sh
+start.bat
+package-check.sh
+package-check.bat
+*.config.ts.bak
+
+# Large files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Source maps (not needed in production)
+*.map
+
+# TypeScript
+*.tsbuildinfo
+

@@ -1,0 +1,45 @@
+.hero {
+  padding: 60px 0;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  color: white;
+  text-align: center;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.title {
+  color: white !important;
+  margin: 0 0 16px 0 !important;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: white;
+  margin: 16px 0 !important;
+}
+
+.description {
+  color: white;
+  opacity: 0.9;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 0;
+  }
+
+  .title {
+    font-size: 24px !important;
+  }
+
+  .subtitle {
+    font-size: 16px !important;
+  }
+}
+

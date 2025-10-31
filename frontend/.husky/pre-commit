@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Generate documentation before commit
+echo "📚 Generating documentation..."
+cd frontend
+pnpm run docs:build || exit 1
+
+# Validate documentation
+pnpm run docs:validate || exit 1
+
+echo "✅ Documentation updated and validated"
+

@@ -1,0 +1,116 @@
+name: Auto Update Documentation
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'frontend/src/**'
+      - 'frontend/typedoc.json'
+      - '.github/workflows/docs-auto-update.yml'
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'frontend/src/**'
+  workflow_dispatch:
+
+jobs:
+  generate-docs:
+    name: Generate Documentation
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.15.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+          cache-dependency-path: frontend/pnpm-lock.yaml
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate documentation
+        working-directory: ./frontend
+        run: |
+          pnpm run docs:build
+
+      - name: Generate examples
+        working-directory: ./frontend
+        run: |
+          pnpm run docs:generate-examples
+
+      - name: Validate documentation
+        working-directory: ./frontend
+        run: |
+          pnpm run docs:validate || true
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [ -n "$(git status --porcelain frontend/docs)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push docs
+        if: steps.changes.outputs.has_changes == 'true' && github.event_name == 'push'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add frontend/docs
+          git commit -m "docs: Auto-update documentation [skip ci]" || exit 0
+          git push
+
+      - name: Create PR for docs update
+        if: steps.changes.outputs.has_changes == 'true' && github.event_name == 'pull_request'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "docs: Auto-update documentation"
+          title: "📚 Auto-update: Documentation"
+          body: |
+            This PR automatically updates the documentation based on code changes.
+            
+            **Changes:**
+            - Generated TypeDoc documentation
+            - Updated usage examples
+            - Validated documentation completeness
+            
+            Please review the changes and merge if approved.
+          branch: docs/auto-update-${{ github.sha }}
+          delete-branch: true
+
+      - name: Upload documentation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-docs
+          path: frontend/docs
+          retention-days: 30
+
+      - name: Deploy to GitHub Pages (if main branch)
+        if: github.ref == 'refs/heads/main' && steps.changes.outputs.has_changes == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/docs
+          destination_dir: ./frontend-docs
+

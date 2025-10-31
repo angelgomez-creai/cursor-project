@@ -1,0 +1,57 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "src/index.ts",
+    "src/features/**/index.ts",
+    "src/shared/**/index.ts"
+  ],
+  "entryPointStrategy": "expand",
+  "out": "docs",
+  "plugin": [
+    "typedoc-plugin-markdown",
+    "typedoc-plugin-no-inherit"
+  ],
+  "readme": "README.md",
+  "name": "E-commerce Frontend API",
+  "includeVersion": true,
+  "excludePrivate": false,
+  "excludeProtected": false,
+  "excludeInternal": false,
+  "includeFileSources": true,
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true
+  },
+  "sort": [
+    "source-order",
+    "kind",
+    "instance-first",
+    "alphabetical"
+  ],
+  "categoryOrder": [
+    "Features",
+    "Shared",
+    "*"
+  ],
+  "kindSortOrder": [
+    "Project",
+    "Module",
+    "Namespace",
+    "Enum",
+    "Class",
+    "Interface",
+    "Type alias",
+    "Function",
+    "Variable"
+  ],
+  "gitRevision": "main",
+  "gitRemote": "origin",
+  "validation": {
+    "notExported": true,
+    "invalidLink": true,
+    "notDocumented": false
+  },
+  "searchInComments": true,
+  "searchInCategories": true
+}
+
