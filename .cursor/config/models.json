@@ -1,0 +1,23 @@
+{
+    "model_selection": {
+      "mode": "automatic",
+      "fallback_model": "gpt-4o",
+      "routing_rules": {
+        "file_patterns": {
+          "**/*.test.{ts,js}": "gemini",
+          "**/*.spec.{ts,js}": "gemini",
+          "**/docs/**/*.md": "claude",
+          "**/README.md": "claude",
+          "**/architecture/**": "gpt-4.1"
+        },
+        "task_patterns": {
+          "explain": "claude",
+          "document": "claude",
+          "test": "gemini",
+          "refactor": "gpt-4.1",
+          "optimize": "gpt-4.1",
+          "debug": "auto"
+        }
+      }
+    }
+  }

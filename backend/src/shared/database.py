@@ -46,9 +46,8 @@ def init_db():
     try:
         print("🔧 Initializing shared database...")
         
-        # Initialize products table
-        from src.products.database import init_database as init_products_db
-        init_products_db()
+        # Products table is now initialized via SQLAlchemy in infrastructure layer
+        # See: infrastructure.database.sqlalchemy.session.init_database()
         
         # ❌ PROBLEMA: No inicialización de otras tablas futuras:
         # - users table

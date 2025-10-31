@@ -1,0 +1,14 @@
+# Backend Rules
+
+- Validate inputs at boundaries (HTTP, queue, jobs).
+- Principle of least privilege for DB and services.
+- Log with structure (level, event, correlationId).
+
+## API
+- Version endpoints; never break existing clients.
+- Consistent error model with traceable codes.
+
+## Database
+- Migrations are idempotent and reversible.
+- Use transactions for multi-step writes.
+

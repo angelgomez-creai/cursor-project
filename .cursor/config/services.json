@@ -1,0 +1,17 @@
+{
+    "microservices": {
+      "discovery": "workspace_mapping",
+      "services": {
+        "user_service": {
+          "path": "services/user-service",
+          "language": "python",
+          "dependencies": ["auth-service"]
+        },
+        "auth_service": {
+          "path": "services/auth-service",
+          "language": "typescript",
+          "dependencies": []
+        }
+      }
+    }
+  }

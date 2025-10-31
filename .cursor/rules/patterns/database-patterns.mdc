@@ -1,0 +1,7 @@
+# Database Patterns
+
+- Use surrogate primary keys; natural keys for uniqueness.
+- Soft deletes where recovery matters; cascade with caution.
+- Avoid N+1 queries; prefer joins or batching.
+- Index for read paths, measure before adding.
+

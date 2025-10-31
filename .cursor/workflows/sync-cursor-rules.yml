@@ -1,0 +1,41 @@
+name: Sync Cursor Rules
+on:
+  push:
+    paths: ['.cursor/rules/**']
+    branches: [main]
+
+jobs:
+  sync-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Detect Rules Changes
+        id: changes
+        run: |
+          echo "changed_files=$(git diff --name-only HEAD~1 HEAD | grep '.cursor/rules' | tr '\n' ' ')" >> $GITHUB_OUTPUT
+
+      - name: Validate Rules
+        run: |
+          npm run validate-cursor-rules
+
+      - name: Sync to Related Repositories
+        if: steps.changes.outputs.changed_files != ''
+        run: |
+          # Sync to other team repositories
+          for repo in ${{ vars.RELATED_REPOS }}; do
+            echo "Syncing rules to $repo"
+            gh api repos/$repo/dispatches \
+              --method POST \
+              --field event_type="rules_update" \
+              --field client_payload='{"source_repo":"${{ github.repository }}","rules_version":"${{ github.sha }}"}'
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Rules Documentation
+        run: |
+          npm run generate-rules-docs
+          git add docs/rules/
+          git commit -m "docs: update rules documentation [skip ci]" || exit 0
+          git push

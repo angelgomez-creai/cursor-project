@@ -1,0 +1,2 @@
+"""SQLAlchemy infrastructure module"""
+

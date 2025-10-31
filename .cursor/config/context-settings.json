@@ -1,0 +1,17 @@
+{
+    "context_optimization": {
+      "compression_enabled": true,
+      "max_context_files": 20,
+      "smart_exclusions": true,
+      "cost_controls": {
+        "daily_token_limit": 50000,
+        "alert_thresholds": [0.7, 0.9],
+        "auto_downgrade_model": true
+      },
+      "caching": {
+        "enabled": true,
+        "context_ttl": "1h",
+        "response_ttl": "24h"
+      }
+    }
+  }

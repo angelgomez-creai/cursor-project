@@ -1,0 +1,7 @@
+# Legacy products module removed - migrated to Clean Architecture
+# New structure:
+# - domain/entities/product.py
+# - application/use_cases/products/
+# - infrastructure/database/sqlalchemy/repositories/product_repository_impl.py
+# - presentation/api/v1/products/router.py
+

@@ -1,0 +1,30 @@
+---
+alwaysApply: true
+---
+
+# Reglas Globales del Proyecto
+
+## Convenciones de Nomenclatura
+- **Variables y funciones**: camelCase
+- **Componentes React**: PascalCase
+- **Archivos**: kebab-case
+- **Constantes**: UPPER_SNAKE_CASE
+- **Base de datos**: snake_case
+
+## Estructura de Archivos
+- Un componente por archivo
+- Colocar tests junto al componente: `Button.tsx` + `Button.test.tsx`
+- Usar exports named en lugar de default cuando sea posible
+- Organizar imports: externos → internos → relativos
+
+## Patrones Obligatorios
+- Usar TypeScript estricto
+- Implementar error boundaries en componentes de página
+- Validar todas las props con interfaces/types
+- Incluir JSDoc para funciones públicas
+
+## Tecnologías del Stack
+- Frontend: React 18 + TypeScript + TailwindCSS
+- Backend: FastAPI + SQLAlchemy + PostgreSQL
+- Testing: Jest + React Testing Library + Playwright
+- DevOps: Docker + GitHub Actions

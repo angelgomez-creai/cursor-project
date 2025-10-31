@@ -1,0 +1,33 @@
+{
+    "automated_testing": {
+      "enabled": true,
+      "trigger_on": [
+        "pre_commit",
+        "pull_request",
+        "background_agent_completion",
+        "scheduled"
+      ],
+  
+      "test_generation": {
+        "auto_generate": true,
+        "coverage_target": 85,
+        "test_types": ["unit", "integration", "e2e"],
+        "update_on_code_change": true
+      },
+  
+      "validation_pipeline": {
+        "static_analysis": true,
+        "security_scanning": true,
+        "performance_testing": true,
+        "accessibility_testing": true,
+        "visual_regression": true
+      },
+  
+      "ai_capabilities": {
+        "smart_test_selection": true,
+        "flaky_test_detection": true,
+        "test_impact_analysis": true,
+        "auto_test_fixing": true
+      }
+    }
+  }

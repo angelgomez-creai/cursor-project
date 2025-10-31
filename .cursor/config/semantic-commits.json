@@ -1,0 +1,32 @@
+{
+    "ai_commit_messages": {
+      "enabled": true,
+      "model": "cursor-commits-v2",
+      "analysis_depth": "comprehensive",
+  
+      "semantic_enhancement": {
+        "enabled": true,
+        "include_impact_analysis": true,
+        "link_related_changes": true,
+        "generate_change_summaries": true,
+        "track_technical_debt": true
+      },
+  
+      "commit_categorization": {
+        "feature": "feat",
+        "bug_fix": "fix",
+        "performance": "perf",
+        "refactor": "refactor",
+        "documentation": "docs",
+        "testing": "test"
+      },
+  
+      "advanced_features": {
+        "breaking_change_detection": true,
+        "dependency_impact_analysis": true,
+        "code_complexity_tracking": true,
+        "test_coverage_impact": true,
+        "performance_regression_detection": true
+      }
+    }
+  }

@@ -1,0 +1,39 @@
+
+{
+  "rules_versioning": {
+    "enabled": true,
+    "strategy": "semantic_versioning",
+    "auto_commit": true,
+
+    "versioning_triggers": {
+      "major_changes": [
+        "breaking_architectural_decisions",
+        "incompatible_pattern_changes",
+        "security_policy_updates"
+      ],
+      "minor_changes": [
+        "new_patterns_added",
+        "enhanced_guidelines",
+        "additional_examples"
+      ],
+      "patch_changes": [
+        "typo_corrections",
+        "example_improvements",
+        "clarification_updates"
+      ]
+    },
+
+    "git_integration": {
+      "auto_tag": true,
+      "changelog_generation": true,
+      "pr_validation": true,
+      "team_approval_required": true
+    },
+
+    "documentation": {
+      "generate_migration_guides": true,
+      "update_team_wiki": true,
+      "notify_slack_channel": "#dev-standards"
+    }
+  }
+}

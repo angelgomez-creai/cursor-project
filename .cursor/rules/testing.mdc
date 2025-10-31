@@ -1,0 +1,25 @@
+---
+globs: **/*.test.{ts,js,tsx,jsx}, **/*.spec.{ts,js,tsx,jsx}, **/__tests__/**/*, **/tests/**/*
+alwaysApply: false
+---
+
+# Reglas de Testing
+
+## Convenciones de Testing
+- Usar describe/it para estructura de tests
+- Implementar AAA pattern (Arrange, Act, Assert)
+- Mockear dependencias externas
+- Escribir tests descriptivos con nombres claros
+
+## Cobertura Mínima
+- 80% para componentes críticos
+- 90% para utilidades y helpers
+- 100% para funciones de validación
+
+// Orden de aplicación (mayor número = mayor prioridad)
+const rulePrecedence = {
+  auto_attach_rules: 100,    // Contexto específico
+  user_rules: 90,            // Preferencias personales
+  project_rules: 70,         // Estándares del proyecto
+  global_defaults: 10        // Valores por defecto
+};

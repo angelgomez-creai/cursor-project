@@ -1,0 +1,91 @@
+# ============================================
+# Terraform Variables Example
+# ============================================
+# Copy this file to terraform.tfvars and fill in your values
+# terraform.tfvars is in .gitignore for security
+
+# AWS Configuration
+aws_region  = "us-east-1"
+environment = "production"
+project_name = "ecommerce"
+
+# VPC Configuration
+vpc_cidr            = "10.0.0.0/16"
+enable_nat_gateway  = true
+enable_vpn_gateway  = false
+
+# ECS Configuration
+ecs_cluster_name     = "ecommerce-cluster"
+backend_service_name = "ecommerce-backend"
+frontend_service_name = "ecommerce-frontend"
+
+backend_cpu    = 512
+backend_memory = 1024
+
+frontend_cpu    = 256
+frontend_memory = 512
+
+backend_desired_count  = 2
+frontend_desired_count = 2
+
+backend_container_port  = 8000
+frontend_container_port = 80
+
+# Docker Images
+backend_image  = "ghcr.io/your-org/ecommerce/backend:latest"
+frontend_image = "ghcr.io/your-org/ecommerce/frontend:latest"
+
+# Auto Scaling
+enable_auto_scaling      = true
+backend_min_capacity    = 2
+backend_max_capacity    = 10
+frontend_min_capacity   = 2
+frontend_max_capacity   = 10
+
+backend_scaling_target_cpu  = 70
+frontend_scaling_target_cpu = 70
+
+# RDS Configuration
+db_instance_class       = "db.t3.medium"
+db_allocated_storage    = 20
+db_max_allocated_storage = 100
+db_engine_version       = "15.4"
+db_name                = "ecommerce"
+db_username            = "ecommerce_admin"
+# db_password - Set via environment variable or AWS Secrets Manager
+# export TF_VAR_db_password="your-secure-password"
+
+db_backup_retention_period = 7
+db_backup_window          = "03:00-04:00"
+db_maintenance_window     = "mon:04:00-mon:05:00"
+
+enable_db_multi_az            = true
+enable_db_deletion_protection = true
+
+# ALB Configuration
+alb_name              = "ecommerce-alb"
+enable_alb_logging    = true
+enable_https          = false
+# ssl_certificate_arn - ARN of ACM certificate for HTTPS
+# ssl_certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/abc123..."
+
+health_check_path_backend  = "/health"
+health_check_path_frontend = "/"
+
+# Redis Configuration
+enable_redis          = true
+redis_node_type       = "cache.t3.micro"
+redis_num_cache_nodes = 1
+redis_engine_version  = "7.0"
+
+# Logging
+enable_cloudwatch_logs = true
+log_retention_days     = 30
+
+# Additional Tags
+tags = {
+  Owner       = "DevOps"
+  Project     = "Ecommerce"
+  Environment = "production"
+}
+

@@ -1,0 +1,21 @@
+{
+    "code_quality": {
+      "linting": {
+        "eslint": {
+          "enabled": true,
+          "auto_fix": true,
+          "config": ".eslintrc.js"
+        }
+      },
+      "formatting": {
+        "prettier": {
+          "enabled": true,
+          "config": ".prettierrc"
+        }
+      },
+      "pre_commit": {
+        "enabled": true,
+        "hooks": ["lint", "format", "test"]
+      }
+    }
+  }

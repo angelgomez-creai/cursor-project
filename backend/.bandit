@@ -1,0 +1,14 @@
+[bandit]
+# Bandit security scanner configuration
+exclude_dirs = tests,venv,env,__pycache__,migrations,.git
+tests = tests
+
+# Severity levels: LOW, MEDIUM, HIGH
+severity_threshold = medium
+confidence_threshold = medium
+
+# Skip specific checks (comma-separated)
+# B101: assert_used - Common in tests
+# B601: shell_injection_subprocess - If using subprocess safely
+skips = B101
+

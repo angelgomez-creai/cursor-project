@@ -1,0 +1,57 @@
+---
+globs: **/*.tsx, **/*.jsx
+alwaysApply: false
+---
+
+# Reglas para Componentes React
+
+## Template de Componente Estándar
+
+- Aplica esta regla solo si el archivo contiene `React.FC` o `useState`.
+
+```typescript
+import React, { useState, useCallback, useMemo } from 'react';
+import { cn } from '@/lib/utils';
+
+// 1. Interface de Props (exportada)
+export interface ComponentNameProps {
+  // Props obligatorias primero
+  title: string;
+  // Props opcionales después
+  variant?: 'primary' | 'secondary';
+  className?: string;
+  children?: React.ReactNode;
+}
+
+// 2. Componente principal
+const ComponentName: React.FC<ComponentNameProps> = ({
+  title,
+  variant = 'primary',
+  className,
+  children
+}) => {
+  // 3. State hooks primero
+  const [isActive, setIsActive] = useState(false);
+
+  // 4. Computed values con useMemo
+  const computedClass = useMemo(() => cn(
+    'base-class',
+    `variant-${variant}`,
+    className
+  ), [variant, className]);
+
+  // 5. Event handlers con useCallback
+  const handleClick = useCallback(() => {
+    setIsActive(prev => !prev);
+  }, []);
+
+  // 6. Render
+  return (
+    <div className={computedClass} onClick={handleClick}>
+      <h2>{title}</h2>
+      {children}
+    </div>
+  );
+};
+
+export default ComponentName;

@@ -1,0 +1,2 @@
+"""Infrastructure authentication module"""
+

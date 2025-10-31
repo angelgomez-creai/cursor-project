@@ -1,0 +1,22 @@
+{
+    "workspace_type": "monorepo",
+    "package_manager": "pnpm",
+    "apps": {
+      "web": {
+        "type": "react_app",
+        "path": "apps/web",
+        "rules": [".cursor/rules/frontend.md"],
+        "context_scope": "app_focused"
+      },
+      "api": {
+        "type": "fastapi_app",
+        "path": "apps/api",
+        "rules": [".cursor/rules/backend.md"],
+        "context_scope": "app_focused"
+      }
+    },
+    "packages": {
+      "shared-types": "packages/shared-types",
+      "ui-components": "packages/ui-components"
+    }
+  }

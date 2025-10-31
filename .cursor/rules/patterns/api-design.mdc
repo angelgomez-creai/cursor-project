@@ -1,0 +1,7 @@
+# API Design Patterns
+
+- Consistent resource naming and HTTP semantics.
+- Use pagination, filtering, and sorting standards.
+- Return problem+json for errors with correlationId.
+- Document with OpenAPI and examples.
+

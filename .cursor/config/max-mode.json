@@ -1,0 +1,18 @@
+{
+    "max_mode": {
+      "enabled": true,
+      "usage_strategy": "strategic",
+      "activation_triggers": {
+        "manual_only": true,
+        "keywords": ["refactor entire", "analyze codebase", "migrate to", "generate documentation"]
+      },
+      "scope_limits": {
+        "max_files": 500,
+        "exclude_patterns": ["node_modules/**", "dist/**", "*.min.js", "coverage/**"]
+      },
+      "cost_controls": {
+        "max_monthly_usage": 10,
+        "require_confirmation": true
+      }
+    }
+  }

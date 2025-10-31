@@ -1,0 +1,13 @@
+{
+    "docker_integration": {
+      "enabled": true,
+      "auto_detect_containers": true,
+      "development_containers": [
+        {
+          "name": "web-dev",
+          "dockerfile": "Dockerfile.dev",
+          "context_mount": true
+        }
+      ]
+    }
+  }

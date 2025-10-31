@@ -1,59 +1,74 @@
+"""
+Main application entry point
+"""
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-from src.products.api import router as products_router
-from src.shared.database import init_db
+from infrastructure.config.settings import get_settings
+from infrastructure.database.sqlalchemy.session import init_database
+from presentation.api.v1.products.router import router as products_router
+from presentation.api.v1.auth.router import router as auth_router
 
-# ❌ PROBLEMA: Configuración muy básica sin validación
+# Get settings
+settings = get_settings()
+
+# Create FastAPI app with settings
 app = FastAPI(
-    title="E-commerce Legacy API",
-    description="Legacy e-commerce API that needs refactoring",
-    version="0.1.0",
-    # ❌ PROBLEMA: No configuración de seguridad
+    title=settings.API_TITLE,
+    description=settings.API_DESCRIPTION,
+    version=settings.API_VERSION,
+    docs_url="/docs" if settings.DEBUG else None,
+    redoc_url="/redoc" if settings.DEBUG else None,
 )
 
-# ❌ PROBLEMA: CORS muy permisivo - security issue
+# Configure CORS with settings
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # ❌ Muy permisivo
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=settings.CORS_ORIGINS,
+    allow_credentials=settings.CORS_ALLOW_CREDENTIALS,
+    allow_methods=settings.CORS_ALLOW_METHODS,
+    allow_headers=settings.CORS_ALLOW_HEADERS,
 )
 
-# ❌ PROBLEMA: No middleware de logging, no rate limiting, no security headers
-
 # Include routers
-app.include_router(products_router)
+app.include_router(products_router, prefix="/api/v1")
+app.include_router(auth_router, prefix="/api/v1")
 
 @app.get("/", tags=["General"])
 async def root():
-    """Root endpoint - basic health check"""
+    """Root endpoint"""
     return {
-        "message": "E-commerce Legacy API",
+        "message": settings.API_TITLE,
         "status": "running",
-        "version": "0.1.0"
+        "version": settings.API_VERSION,
+        "environment": settings.ENVIRONMENT
     }
 
 @app.get("/health", tags=["General"])
 async def health_check():
-    """Basic health check endpoint"""
-    return {"status": "ok", "message": "API is running"}
+    """Health check endpoint"""
+    return {
+        "status": "ok",
+        "message": "API is running",
+        "environment": settings.ENVIRONMENT
+    }
 
 if __name__ == "__main__":
     # Initialize database on startup
     print("🔧 Initializing database...")
-    init_db()
+    init_database()
     print("✅ Database initialized")
     
-    # ❌ PROBLEMA: No configuración de production, no logging setup
-    print("🚀 Starting E-commerce Legacy API...")
+    print(f"🚀 Starting {settings.API_TITLE}...")
+    print(f"🌐 Environment: {settings.ENVIRONMENT}")
+    print(f"📍 Server: http://{settings.HOST}:{settings.PORT}")
+    
     uvicorn.run(
         "main:app",
-        host="0.0.0.0",
-        port=8000,
-        reload=True,  # ❌ PROBLEMA: reload=True hardcodeado
-        # ❌ PROBLEMA: No configuración de workers, no SSL
+        host=settings.HOST,
+        port=settings.PORT,
+        reload=settings.RELOAD and settings.ENVIRONMENT == "development",
+        log_level=settings.LOG_LEVEL.lower()
     )
 
 

@@ -1,0 +1,17 @@
+---
+globs: **/src/**/*.tsx, **/src/**/*.ts, **/components/**/*
+alwaysApply: false
+---
+
+# Reglas Frontend
+
+## Convenciones React
+- Usar functional components con hooks
+- Implementar PropTypes o TypeScript interfaces
+- Preferir composición sobre herencia
+- Usar React.memo para optimización cuando sea necesario
+
+## Styling
+- Usar TailwindCSS como framework principal
+- Crear componentes reutilizables en `/components/ui/`
+- Implementar dark mode con CSS variables

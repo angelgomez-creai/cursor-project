@@ -1,0 +1,113 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+.venv*/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-*
+
+# Testing
+tests/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+.env.*
+!.env.example
+*.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+ecommerce.db
+*.sql
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Docker
+Dockerfile*
+.dockerignore
+docker-compose*.yml
+docker-entrypoint.sh
+
+# Documentation
+*.md
+README*
+docs/
+*.txt
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.git/
+.gitignore
+
+# Misc
+*.bak
+*.tmp
+.cache/
+.coverage
+*.cover
+.hypothesis/
+*.orig
+
+# Large files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Build artifacts
+*.egg-info/
+.python-version
+
